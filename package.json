@@ -1,0 +1,30 @@
+{
+  "name": "@chec/react-commercejs-hooks",
+  "version": "0.0.9",
+  "description": "ReactJS hooks for using Commerce.js with React projects",
+  "main": "dist/commerce-react.js",
+  "source": "src/index.js",
+  "module": "dist/commerce-react.module.js",
+  "unpkg": "dist/commerce-react.umd.js",
+  "repository": "https://github.com/chec/react-commercejs-hooks",
+  "author": "Chec Platform Ltd.",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "microbundle --no-compress --jsx React.createElement && microbundle --no-compress --jsx React.createElement src/checkout/ -o checkout/index.js"
+  },
+  "dependencies": {
+    "@chec/commerce.js": "^2.2.0",
+    "create-shared-react-context": "^1.0.3"
+  },
+  "peerDependencies": {
+    "@stripe/react-stripe-js": ">=1",
+    "react": ">=17"
+  },
+  "optionalDependencies": {
+    "@stripe/react-stripe-js": ">=1"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.0",
+    "react": "^17.0.1"
+  }
+}
