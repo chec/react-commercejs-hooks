@@ -89,7 +89,7 @@ import { CheckoutProvider } from '@chec/react-commercejs-hooks/checkout';
 
 export default function Checkout({ cartId }) {
   return (
-    <CheckoutProvider id={cardId}>
+    <CheckoutProvider id={cartId}>
       <LineItemSummary />
       <CustomerFields />
       <PaymentSummary />
