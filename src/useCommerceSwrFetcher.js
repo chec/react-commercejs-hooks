@@ -4,7 +4,11 @@ import useCommerce from './useCommerce';
 export default function useCommerceSwrFetcher() {
   const commerce = useCommerce();
 
-  return (argument) => {
+  return useCallback((argument) => {
+    if (!commerce || Object.keys(commerce).length === 0) {
+      return null;
+    }
+
     let method = argument;
     let args = [];
     if (Array.isArray(argument)) {
@@ -24,5 +28,5 @@ export default function useCommerceSwrFetcher() {
     }
 
     return func(...args);
-  }
+  }, [commerce]);
 }
