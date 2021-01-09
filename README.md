@@ -117,6 +117,7 @@ The following hooks are available for use within a checkout, and are all exporte
 | `useCaptureWithStripe()` | Extends the functionality of `useCapture` to provide integrated Stripe support, assuming that this hook is used within Elements context (from `react-stripe-js`) |
 | `useSetProductVariant()` | Provides a callback that can be used to set a variant on a product within the checkout |
 | `useSetShippingOption()` | Provides a callback that can be used to set the chosen shipping option for the checkout |
+| `useRegenerateCheckout()` | Regenerate a checkout from the properties provided to the context. Can be useful to update the checkout when a cart changes in the same page. |
 
 ### Cart hooks
 
