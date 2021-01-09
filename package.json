@@ -1,7 +1,15 @@
 {
   "name": "@chec/react-commercejs-hooks",
-  "version": "0.2.1",
-  "keywords": ["next", "commerce", "react", "commercejs", "react-hooks", "commerce", "ecommerce"],
+  "version": "0.2.2",
+  "keywords": [
+    "next",
+    "commerce",
+    "react",
+    "commercejs",
+    "react-hooks",
+    "commerce",
+    "ecommerce"
+  ],
   "description": "ReactJS hooks for using Commerce.js with React projects",
   "main": "dist/commerce-react.js",
   "source": "src/index.js",
