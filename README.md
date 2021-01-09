@@ -104,7 +104,7 @@ The following hooks are available for use within a checkout, and are all exporte
 
 | Hook | Purpose |
 | ---- | ------- |
-| `useCheckout()` | Provides the checkout (token) object that was fetched by Commerce.js (when available). The object structure of this is available [here](https://commercejs.com/docs/api/?shell#checkout) |
+| `useCheckout()` | Provides the checkout (token) object that was fetched by Commerce.js (when available). The object structure of this is available [here](https://commercejs.com/docs/api/#checkout) |
 | `useAllCountries()` | Provide all countries that Commerce.js supports. See [list all countries](https://commercejs.com/docs/sdk/checkout#list-all-countries) in the docs. |
 | `useConditionals()` | Provides the "conditionals" attribute from the checkout, indicating what conditional flags apply for the current checkout |
 | `useLineItems()` | Provides the line items in the checkout |
@@ -118,8 +118,23 @@ The following hooks are available for use within a checkout, and are all exporte
 | `useSetProductVariant()` | Provides a callback that can be used to set a variant on a product within the checkout |
 | `useSetShippingOption()` | Provides a callback that can be used to set the chosen shipping option for the checkout |
 
-TODO: Add more detailed docs for each hook
-
 ### Cart hooks
 
-TBA
+Cart hooks provided by this library leverage Vercel's `swr` library: https://swr.vercel.app/. This provides efficient
+request usage while maintaining data state across components and pages, all without having to wrap components in a React
+context provider. Cart hooks must still be used within the [`CommerceContext`](#usage) though.
+
+The following hooks are available for use for carts, and are all exported from `@chec/react-commercejs-hooks/cart`. The
+arguments for most cart update methods are the same as Commerce.js functions, which are detailed in the 
+[docs](https://commercejs.com/docs):
+
+| Hook | Purpose |
+| ---- | ------- |
+| `useCart()` | Provides the active cart, or a cart for a specific ID if specified. The object structure of this is available [here](https://commercejs.com/docs/api/#carts) |
+| `useActiveCartId()` | Provides the ID of the active cart - tracked in the users browser |
+| `useAddToCart()` | Provides a callback that can be used to add a product to the cart. Takes a product ID and an optional quantity of items to add |
+| `useUpdateCart()` | Provides a callback that can be used to update line items in the cart. Takes the same arguments as `commerce.cart.retrieve` in Commerce.js |
+| `useRemoveFromCart()` | Provides a callback that can be used to remove a given line item (by ID) from the cart |
+| `useEmptyCart()` | Provides a callback that can be used to empty the cart |
+| `useCreateNewCart()` | Provides a callback that can be used to replace the current cart with a new empty cart |
+
