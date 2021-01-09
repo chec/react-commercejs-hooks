@@ -1,6 +1,6 @@
 {
   "name": "@chec/react-commercejs-hooks",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ReactJS hooks for using Commerce.js with React projects",
   "main": "dist/commerce-react.js",
   "source": "src/index.js",
