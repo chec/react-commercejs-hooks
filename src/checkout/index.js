@@ -5,6 +5,7 @@ import useCaptureWithStripe from './useCaptureWithStripe';
 import useCheckout from './useCheckout';
 import useConditionals from './useConditionals';
 import useLineItems from './useLineItems';
+import useRegenerateCheckout from './useRegenerateCheckout';
 import useSetProductVariant from './useSetProductVariant';
 import useSetShippingOption from './useSetShippingOption';
 import useShippingCountries from './useShippingCountries';
@@ -20,6 +21,7 @@ export {
   useCaptureWithStripe,
   useCheckout,
   useConditionals,
+  useRegenerateCheckout,
   useLineItems,
   useSetProductVariant,
   useSetShippingOption,
