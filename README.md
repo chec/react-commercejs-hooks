@@ -12,7 +12,7 @@
   <a href="https://npmjs.org/package/@chec/react-commercejs-hooks">
     <img src="https://img.shields.io/npm/dw/@chec/react-commercejs-hooks.svg" alt="Downloads/week" />
   </a>
-    <a href="https://github.com/chec/commerce.js/blob/master/packages/react-commercejs-hooks/package.json">
+    <a href="https://github.com/chec/react-commercejs-hooks/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/@chec/react-commercejs-hooks" alt="License" />
   </a>
   <br>
@@ -48,7 +48,7 @@ export default function MyComponent() {
 }
 ```
 
-The arguments for the Commerce.js sdk are supported as props on the `CommerceContext` component:
+The arguments for the Commerce.js SDK are supported as props on the `CommerceContext` component:
 
 | Prop | Purpose |
 | ---- | ------- |
