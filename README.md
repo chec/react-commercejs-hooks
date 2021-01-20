@@ -134,7 +134,7 @@ arguments for most cart update methods are the same as Commerce.js functions, wh
 | `useCart()` | Provides the active cart, or a cart for a specific ID if specified. The object structure of this is available [here](https://commercejs.com/docs/api/#carts) |
 | `useActiveCartId()` | Provides the ID of the active cart - tracked in the users browser |
 | `useAddToCart()` | Provides a callback that can be used to add a product to the cart. Takes a product ID and an optional quantity of items to add |
-| `useUpdateCart()` | Provides a callback that can be used to update line items in the cart. Takes the same arguments as `commerce.cart.retrieve` in Commerce.js |
+| `useUpdateCart()` | Provides a callback that can be used to update line items in the cart. Takes the same arguments as `commerce.cart.update` in Commerce.js |
 | `useRemoveFromCart()` | Provides a callback that can be used to remove a given line item (by ID) from the cart |
 | `useEmptyCart()` | Provides a callback that can be used to empty the cart |
 | `useCreateNewCart()` | Provides a callback that can be used to replace the current cart with a new empty cart |
