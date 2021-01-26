@@ -12,7 +12,7 @@ export default function useCaptureWithStripe() {
     }
   })()
 
-  return useCallback(async (detail, setServerErrors) => {
+  return useCallback(async (detail) => {
     const card = elements.getElement(CardElement);
     const paymentMethodResponse = await stripe.createPaymentMethod({ type: 'card', card });
 
@@ -29,7 +29,7 @@ export default function useCaptureWithStripe() {
             payment_method_id: paymentMethodResponse.paymentMethod.id,
           },
         },
-      }, setServerErrors);
+      });
     } catch (response) {
       // Check if we should rethrow the error if it's not related to 3DS issues
       if (response.statusCode !== 402 || response.data.error.type !== 'requires_verification') {
@@ -45,7 +45,7 @@ export default function useCaptureWithStripe() {
             payment_intent_id: cardActionResult.paymentIntent.id,
           },
         },
-      }, setServerErrors);
+      });
     }
   }, [stripe, elements])
 }
