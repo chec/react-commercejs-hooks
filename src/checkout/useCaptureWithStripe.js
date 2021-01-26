@@ -29,7 +29,7 @@ export default function useCaptureWithStripe() {
             payment_method_id: paymentMethodResponse.paymentMethod.id,
           },
         },
-      });
+      }, setServerErrors);
     } catch (response) {
       // Check if we should rethrow the error if it's not related to 3DS issues
       if (response.statusCode !== 402 || response.data.error.type !== 'requires_verification') {
