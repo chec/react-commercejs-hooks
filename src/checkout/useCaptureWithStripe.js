@@ -12,7 +12,7 @@ export default function useCaptureWithStripe() {
     }
   })()
 
-  return useCallback(async (detail) => {
+  return useCallback(async (detail, setServerErrors) => {
     const card = elements.getElement(CardElement);
     const paymentMethodResponse = await stripe.createPaymentMethod({ type: 'card', card });
 
@@ -45,7 +45,7 @@ export default function useCaptureWithStripe() {
             payment_intent_id: cardActionResult.paymentIntent.id,
           },
         },
-      });
+      }, setServerErrors);
     }
   }, [stripe, elements])
 }
