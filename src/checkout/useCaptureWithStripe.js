@@ -43,6 +43,7 @@ export default function useCaptureWithStripe() {
       }
 
       return capture({
+        ...detail,
         payment: {
           gateway: 'stripe',
           stripe: {
