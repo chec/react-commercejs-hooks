@@ -56,7 +56,7 @@ The arguments for the Commerce.js SDK are supported as props on the `CommerceCon
 | debug | A boolean indicating whether the Commerce.js SDK should emit debug information to the console. The second argument of Commerce.js |
 | options | An object with various options. This is the third argument of the Commerce.js SDK |
 
-You can use the Commerce.js SDK in any component that is a child of the `CommerceContext` component by using the 
+You can use the Commerce.js SDK in any component that is a child of the `CommerceContext` component by using the
 `useCommerce` hook:
 
 ```js
@@ -65,12 +65,12 @@ import { useCommerce } from '@chec/react-commercejs-hooks';
 
 export default function ProductList() {
   const { commerce } = useCommerce();
-  
+
   useEffect(() => {
     if (!commerce) {
       return;
     }
-    
+
     commerce.products.list().then(products => {
       // ...
     })
@@ -81,7 +81,7 @@ export default function ProductList() {
 ### Checkout hooks
 
 This library provides many hooks for use with the checkout, but in order to use them, you must put components within a
-checkout context by using the `CheckoutProvider` component. In the following example, a checkout is created from a 
+checkout context by using the `CheckoutProvider` component. In the following example, a checkout is created from a
 Commerce.js cart ID, passed in as a prop:
 
 ```js
@@ -99,13 +99,14 @@ export default function Checkout({ cartId }) {
 }
 ```
 
-The following hooks are available for use within a checkout, and are all exported from 
+The following hooks are available for use within a checkout, and are all exported from
 `@chec/react-commercejs-hooks/checkout`:
 
 | Hook | Purpose |
 | ---- | ------- |
 | `useCheckout()` | Provides the checkout (token) object that was fetched by Commerce.js (when available). The object structure of this is available [here](https://commercejs.com/docs/api/#checkout) |
-| `useAllCountries()` | Provide all countries that Commerce.js supports. See [list all countries](https://commercejs.com/docs/sdk/checkout#list-all-countries) in the docs. |
+| `useAllCountries()` | Provides all countries that Commerce.js supports. See [list all countries](https://commercejs.com/docs/sdk/checkout#list-all-countries) in the docs. |
+| `useAllSubdivisions()` | Provides all subdivisions based on a country that Commerce.js supports. See [list all subdivisions for a country](https://commercejs.com/docs/api/#list-all-subdivisions-for-a-country) in the docs. |
 | `useConditionals()` | Provides the "conditionals" attribute from the checkout, indicating what conditional flags apply for the current checkout |
 | `useLineItems()` | Provides the line items in the checkout |
 | `useShippingCountries()` | Provides the countries that are eligible for shipping based on the product selection in the checkout |
@@ -126,7 +127,7 @@ request usage while maintaining data state across components and pages, all with
 context provider. Cart hooks must still be used within the [`CommerceContext`](#usage) though.
 
 The following hooks are available for use for carts, and are all exported from `@chec/react-commercejs-hooks/cart`. The
-arguments for most cart update methods are the same as Commerce.js functions, which are detailed in the 
+arguments for most cart update methods are the same as Commerce.js functions, which are detailed in the
 [docs](https://commercejs.com/docs):
 
 | Hook | Purpose |

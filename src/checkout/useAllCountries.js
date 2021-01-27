@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import useCommerce from '../useCommerce';
-import useCheckout from './useCheckout';
 
 export default function useAllCountries() {
   const [countries, setCountries] = useState();
   const commerce = useCommerce();
-  const checkout = useCheckout();
 
   useEffect(async () => {
     if (!commerce) {
@@ -15,7 +13,7 @@ export default function useAllCountries() {
     const response = await commerce.services.localeListCountries();
 
     setCountries(response.countries);
-  }, [checkout]);
+  }, [commerce]);
 
   return countries;
 }
