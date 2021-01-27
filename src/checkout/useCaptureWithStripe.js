@@ -38,6 +38,10 @@ export default function useCaptureWithStripe() {
 
       const cardActionResult = await stripe.handleCardAction(response.data.error.param);
 
+      if (cardActionResult.error) {
+        throw cardActionResult.error;
+      }
+
       return capture({
         payment: {
           gateway: 'stripe',
