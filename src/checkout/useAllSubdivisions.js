@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useCommerce from '../useCommerce';
 
-export default function useAllCountries(countryCode) {
+export default function useAllSubdivisions(countryCode) {
   const [subdivisions, setSubdivisions] = useState();
   const commerce = useCommerce();
 
