@@ -1,5 +1,6 @@
 import CheckoutProvider from './CheckoutProvider';
 import useAllCountries from './useAllCountries';
+import useAllSubdivisions from './useAllSubdivisions';
 import useCapture from './useCapture';
 import useCaptureWithStripe from './useCaptureWithStripe';
 import useCheckout from './useCheckout';
@@ -17,6 +18,7 @@ import useTotals from './useTotals';
 export {
   CheckoutProvider,
   useAllCountries,
+  useAllSubdivisions,
   useCapture,
   useCaptureWithStripe,
   useCheckout,
