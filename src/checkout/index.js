@@ -4,6 +4,7 @@ import useAllSubdivisions from './useAllSubdivisions';
 import useCapture from './useCapture';
 import useCaptureWithStripe from './useCaptureWithStripe';
 import useCheckout from './useCheckout';
+import useCheckIsFree from './useCheckIsFree';
 import useCheckQuantity from './useCheckQuantity';
 import useCheckVariant from './useCheckVariant';
 import useConditionals from './useConditionals';
@@ -24,6 +25,7 @@ export {
   useCapture,
   useCaptureWithStripe,
   useCheckout,
+  useCheckIsFree,
   useCheckQuantity,
   useCheckVariant,
   useConditionals,
