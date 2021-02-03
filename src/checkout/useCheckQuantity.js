@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import { CheckoutContext } from './CheckoutProvider';
 import useCommerce from '../useCommerce';
 
