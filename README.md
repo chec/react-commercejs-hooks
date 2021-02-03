@@ -107,6 +107,8 @@ The following hooks are available for use within a checkout, and are all exporte
 | `useCheckout()` | Provides the checkout (token) object that was fetched by Commerce.js (when available). The object structure of this is available [here](https://commercejs.com/docs/api/#checkout) |
 | `useAllCountries()` | Provides all countries that Commerce.js supports. See [list all countries](https://commercejs.com/docs/sdk/checkout#list-all-countries) in the docs. |
 | `useAllSubdivisions()` | Provides all subdivisions based on a country that Commerce.js supports. See [list all subdivisions for a country](https://commercejs.com/docs/api/#list-all-subdivisions-for-a-country) in the docs. |
+| `useCheckQuantity()` | Checks that a requested quantity is available for a line item ID. Variant and option IDs may also be provided if necessary. See [check requested quantity](https://commercejs.com/docs/api/#check-requested-quantity) in the docs. |
+| `useCheckVariant()` | Checks that the provided variant ID and option ID is valid for the provided line item ID. See [check variant](https://commercejs.com/docs/api/#check-variant) in the docs. |
 | `useConditionals()` | Provides the "conditionals" attribute from the checkout, indicating what conditional flags apply for the current checkout |
 | `useLineItems()` | Provides the line items in the checkout |
 | `useShippingCountries()` | Provides the countries that are eligible for shipping based on the product selection in the checkout |
