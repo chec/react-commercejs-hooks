@@ -7,7 +7,7 @@ export default function useLocationFromIp() {
   const { checkout } = useContext(CheckoutContext);
 
   return useCallback(
-    async (ipAddress = null) => {
+    async (ipAddress = '') => {
       if (!checkout || !commerce) {
         return null;
       }
