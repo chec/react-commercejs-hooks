@@ -1,19 +1,28 @@
-import { useCallback, useContext } from 'react';
-import { CheckoutContext } from './CheckoutProvider';
+import { useEffect, useRef, useState } from 'react';
 import useCommerce from '../useCommerce';
+import useCheckout from './useCheckout';
 
-export default function useLocationFromIp() {
+export default function useLocationFromIp(ipAddress = '') {
   const commerce = useCommerce();
-  const { checkout } = useContext(CheckoutContext);
+  const checkout = useCheckout();
+  const [location, setLocation] = useState(null);
+  const previousIpRef = useRef();
 
-  return useCallback(
-    async (ipAddress = '') => {
-      if (!checkout || !commerce) {
-        return null;
-      }
+  useEffect(async () => {
+    if (!commerce || !checkout) {
+      setLocation(null);
+      return;
+    }
 
-      return commerce.checkout.getLocationFromIP(checkout.id, ipAddress);
-    },
-    [checkout, commerce],
-  );
+    // Don't rerun the side effect if the location has already been fetched (and the IP address hasn't changed)
+    if (location && previousIpRef.current === ipAddress) {
+      return;
+    }
+
+    previousIpRef.current = ipAddress;
+
+    setLocation(await commerce.checkout.getLocationFromIP(checkout.id, ipAddress))
+  }, [commerce, checkout, ipAddress]);
+
+  return location;
 };
