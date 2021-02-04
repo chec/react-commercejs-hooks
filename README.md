@@ -111,6 +111,7 @@ The following hooks are available for use within a checkout, and are all exporte
 | `useCheckVariant()` | Checks that the provided variant ID and option ID is valid for the provided line item ID. See [check variant](https://commercejs.com/docs/api/#check-variant) in the docs. |
 | `useConditionals()` | Provides the "conditionals" attribute from the checkout, indicating what conditional flags apply for the current checkout |
 | `useLineItems()` | Provides the line items in the checkout |
+| `useLocationFromIp()` | Provides geographic information about the user from their IP address. See [get buyer's location from IP](https://commercejs.com/docs/api/#get-buyer-039-s-location-from-ip) in the docs. |
 | `useShippingCountries()` | Provides the countries that are eligible for shipping based on the product selection in the checkout |
 | `useShippingOptions(country, region)` | Provides the shipping options that can be selected for the given country (and region if provided) based on the product selection in the checkout |
 | `useShippingSubdivisions(countryCode)` | Provides subdivisions of the given country code |
@@ -120,6 +121,7 @@ The following hooks are available for use within a checkout, and are all exporte
 | `useCaptureWithStripe()` | Extends the functionality of `useCapture` to provide integrated Stripe support, assuming that this hook is used within Elements context (from `react-stripe-js`) |
 | `useSetProductVariant()` | Provides a callback that can be used to set a variant on a product within the checkout |
 | `useSetShippingOption()` | Provides a callback that can be used to set the chosen shipping option for the checkout |
+| `useSetTaxZone()` | Sets the tax zone for the checkout and updates the live object. See [set tax zone](https://commercejs.com/docs/api/#set-tax-zone) in the docs. |
 | `useRegenerateCheckout()` | Regenerate a checkout from the properties provided to the context. Can be useful to update the checkout when a cart changes in the same page. |
 
 ### Cart hooks
