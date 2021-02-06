@@ -7,12 +7,12 @@ export default function useSetShippingOption() {
   const commerce = useCommerce();
   const { checkout, updateLive } = useContext(CheckoutContext);
 
-  return (shippingOption, country, region = null) => (
+  return (shippingOption: string, country: string, region: string|null = null) => (
     commerce.checkout.checkShippingOption(checkout.id, {
       shipping_option_id: shippingOption,
       country,
       region,
-    }).then((result) => {
+    }).then((result: any) => {
       updateLive(result.live);
       return result;
     })

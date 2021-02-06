@@ -6,7 +6,7 @@ export default function useSetProductVariant() {
   const commerce = useCommerce();
   const { checkout, updateLive } = useContext(CheckoutContext);
 
-  return (variantId, optionId) => (
+  return (variantId: string, optionId: string) => (
     commerce.checkout.checkVariant(
       checkout.id,
       checkout.live.line_items[0].id,
@@ -14,7 +14,7 @@ export default function useSetProductVariant() {
         variant_id: variantId,
         option_id: optionId
       }
-    ).then((result) => {
+    ).then((result: any) => {
       updateLive(result.live);
       return result;
     })

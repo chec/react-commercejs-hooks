@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import useCommerceSwrFetcher from '../useCommerceSwrFetcher';
 import useActiveCartId from './useActiveCartId';
 
-export default function useCart(cartId) {
+export default function useCart(cartId: string) {
   const fetcher = useCommerceSwrFetcher();
   const defaultCartId = useActiveCartId();
 

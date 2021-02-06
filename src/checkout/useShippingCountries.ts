@@ -7,15 +7,14 @@ export default function useShippingCountries() {
   const commerce = useCommerce();
   const checkout = useCheckout();
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!checkout || !commerce) {
       return;
     }
 
-    const response = await commerce.services.localeListShippingCountries(checkout.id);
-
-    setCountries(response.countries);
-  }, [checkout && checkout.id]);
+    commerce.services.localeListShippingCountries(checkout.id)
+      .then((response: any) => setCountries(response.countries))
+  }, [checkout]);
 
   return countries;
 }

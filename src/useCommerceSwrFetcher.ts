@@ -1,13 +1,14 @@
 import { useCallback } from 'react';
-import get from 'lodash.get';
+import get from 'lodash/get';
 import useCommerce from './useCommerce';
 
 export default function useCommerceSwrFetcher() {
   const commerce = useCommerce();
 
-  return useCallback((argument) => {
+  // [method, ...args]: [string, any[]]
+  return useCallback((argument: any): Function => {
     if (!commerce || Object.keys(commerce).length === 0) {
-      return null;
+      return () => {};
     }
 
     let method = argument;

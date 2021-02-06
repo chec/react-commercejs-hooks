@@ -2,14 +2,14 @@ import { useEffect, useState, useRef } from 'react';
 import useCommerce from '../useCommerce';
 import useCheckout from './useCheckout';
 
-export default function useShippingOptions(country, region) {
-  const [options, setOptions] = useState(null);
+export default function useShippingOptions(country: string, region: string|undefined) {
+  const [options, setOptions] = useState<any[]|null>(null);
   const checkout = useCheckout();
   const commerce = useCommerce();
-  const previousArgs = useRef();
+  const previousArgs = useRef<{ country: string, region: string|undefined }|null>(null);
 
   useEffect(() => {
-    if (!commerce || !checkout || typeof country !== 'string' || country === '') {
+    if (!commerce || !checkout || !country) {
       return;
     }
 
@@ -31,12 +31,12 @@ export default function useShippingOptions(country, region) {
       region,
     })
       .then(setOptions)
-      .catch(({statusCode}) => {
+      .catch(({ statusCode }: { statusCode: number }) => {
         // If doesnt exist, set to null.
         if (statusCode === 404) {
           setOptions(null);
         }
-      })
+      });
   }, [commerce, checkout, country, region]);
 
   return options;

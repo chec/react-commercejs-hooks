@@ -2,27 +2,21 @@ import { useCallback, useContext } from 'react';
 import { CheckoutContext } from './CheckoutProvider';
 import useCommerce from '../useCommerce';
 
-export default function useCheckQuantity() {
+export default function useSetTaxZone() {
   const commerce = useCommerce();
   const { checkout, updateLive } = useContext(CheckoutContext);
 
   return useCallback(
-    async (lineItemId, quantity, variants = {}) => {
+    async (data = {}) => {
       if (!checkout || !commerce) {
         return null;
       }
 
-      return commerce.checkout.checkQuantity(
-        checkout.id,
-        lineItemId,
-        {
-          amount: quantity,
-          variants,
-        },
-      ).then((result) => {
-        updateLive(result.live);
-        return result;
-      });
+      return commerce.checkout.setTaxZone(checkout.id, data)
+        .then((result: any) => {
+          updateLive(result.live);
+          return result;
+        });
     },
     [checkout, commerce],
   );

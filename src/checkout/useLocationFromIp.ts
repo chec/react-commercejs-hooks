@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import useCommerce from '../useCommerce';
 import useCheckout from './useCheckout';
 
-export default function useLocationFromIp(ipAddress = '') {
+export default function useLocationFromIp(ipAddress: string = '') {
   const commerce = useCommerce();
   const checkout = useCheckout();
   const [location, setLocation] = useState(null);
-  const previousIpRef = useRef();
+  const previousIpRef = useRef<string>();
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!commerce || !checkout) {
       setLocation(null);
       return;
@@ -21,7 +21,7 @@ export default function useLocationFromIp(ipAddress = '') {
 
     previousIpRef.current = ipAddress;
 
-    setLocation(await commerce.checkout.getLocationFromIP(checkout.id, ipAddress))
+    commerce.checkout.getLocationFromIP(checkout.id, ipAddress).then(setLocation)
   }, [commerce, checkout, ipAddress]);
 
   return location;

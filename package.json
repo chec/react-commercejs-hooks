@@ -11,37 +11,37 @@
     "ecommerce"
   ],
   "description": "ReactJS hooks for using Commerce.js with React projects",
-  "main": "dist/commerce-react.js",
+  "main": "dist/index.js",
   "source": "src/index.js",
-  "module": "dist/commerce-react.module.js",
-  "unpkg": "dist/commerce-react.umd.js",
   "repository": "https://github.com/chec/react-commercejs-hooks",
   "author": "Chec Platform Ltd.",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "run-p build:*",
-    "watch": "run-p \"build:* -- --watch\"",
-    "build:base": "microbundle --no-compress --jsx React.createElement",
-    "build:checkout": "microbundle --no-compress --jsx React.createElement src/checkout/ -o checkout/index.js",
-    "build:cart": "microbundle --no-compress --jsx React.createElement src/cart/ -o cart/index.js"
+    "build": "tsc"
   },
   "dependencies": {
     "@chec/commerce.js": "^2.2.0",
     "create-shared-react-context": "^1.0.3",
     "js-cookie": "^2.2.1",
-    "lodash.get": "^4.4.2",
+    "lodash": "^4.17.20",
     "swr": "^0.4.0"
   },
   "peerDependencies": {
     "@stripe/react-stripe-js": ">=1",
+    "@stripe/stripe-js": ">=1",
     "react": ">=17"
   },
   "optionalDependencies": {
-    "@stripe/react-stripe-js": ">=1"
+    "@stripe/react-stripe-js": ">=1",
+    "@stripe/stripe-js": ">=1"
   },
   "devDependencies": {
+    "@types/js-cookie": "^2.2.6",
+    "@types/lodash": "^4.14.168",
+    "@types/react": "^17.0.1",
     "microbundle": "^0.13.0",
     "npm-run-all": "^4.1.5",
-    "react": "^17.0.1"
+    "react": "^17.0.1",
+    "typescript": "^4.1.3"
   }
 }
