@@ -2,24 +2,24 @@ import { useCallback, useContext } from 'react';
 import { CheckoutContext } from './CheckoutProvider';
 import useCommerce from '../useCommerce';
 
-export default function useCheckVariant() {
+export default function useCheckQuantity() {
   const commerce = useCommerce();
   const { checkout, updateLive } = useContext(CheckoutContext);
 
   return useCallback(
-    async (lineItemId, variantId, optionId) => {
+    async (lineItemId, quantity, variants = {}) => {
       if (!checkout || !commerce) {
         return null;
       }
 
-      return commerce.checkout.checkVariant(
+      return commerce.checkout.checkQuantity(
         checkout.id,
         lineItemId,
         {
-          variant_id: variantId,
-          option_id: optionId,
+          amount: quantity,
+          variants,
         },
-      ).then((result) => {
+      ).then((result: any) => {
         updateLive(result.live);
         return result;
       });

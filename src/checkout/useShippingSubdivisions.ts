@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import useCommerce from '../useCommerce';
 import useCheckout from './useCheckout';
 
-export default function useShippingSubdivisions(countryCode) {
-  const [subdivisions, setSubdivisions] = useState();
+export default function useShippingSubdivisions(countryCode: string) {
+  const [subdivisions, setSubdivisions] = useState<any[]|null>();
   const commerce = useCommerce();
   const checkout = useCheckout();
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!checkout || !commerce) {
       return;
     }
@@ -17,12 +17,10 @@ export default function useShippingSubdivisions(countryCode) {
       return;
     }
 
-    const response = await commerce.services.localeListShippingSubdivisions(
+    commerce.services.localeListShippingSubdivisions(
       checkout.id,
       countryCode
-    );
-
-    setSubdivisions(response.subdivisions);
+    ).then((response: any) => setSubdivisions(response.subdivisions));
   }, [countryCode])
 
   return subdivisions;

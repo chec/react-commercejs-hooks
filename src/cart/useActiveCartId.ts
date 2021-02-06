@@ -1,7 +1,10 @@
 import useCommerce from '../useCommerce';
 import Cookie from 'js-cookie';
 
-export default function useActiveCartId() {
+/**
+ * Returns a string cart ID, or null if Commerce.js is not available
+ */
+export default function useActiveCartId(): null | string {
   const commerce = useCommerce();
 
   if (commerce && commerce.cart) {

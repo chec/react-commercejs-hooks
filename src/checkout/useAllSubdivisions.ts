@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import useCommerce from '../useCommerce';
 
-export default function useAllSubdivisions(countryCode) {
-  const [subdivisions, setSubdivisions] = useState();
+export default function useAllSubdivisions(countryCode: string) {
+  const [subdivisions, setSubdivisions] = useState<any[]|null>();
   const commerce = useCommerce();
 
-  useEffect(async () => {
+  useEffect(() => {
     if (!commerce) {
       return;
     }
@@ -15,11 +15,9 @@ export default function useAllSubdivisions(countryCode) {
       return;
     }
 
-    const response = await commerce.services.localeListSubdivisions(
+    commerce.services.localeListSubdivisions(
       countryCode,
-    );
-
-    setSubdivisions(response.subdivisions);
+    ).then((response: any) => setSubdivisions(response.subdivisions));
   }, [countryCode]);
 
   return subdivisions;
