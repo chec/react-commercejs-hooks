@@ -8,12 +8,19 @@ export default function useIsFree(): boolean|null {
   const [isFree, setIsFree] = useState<boolean|null>(null);
 
   useEffect(() => {
-    if (!commerce || !checkout) {
+    if (!commerce || !checkout?.live?.total) {
       setIsFree(null);
       return;
     }
 
-    commerce.checkout.isFree(checkout.id).then((response: any) => setIsFree(response.is_free));
+    const total = checkout.live.total.raw;
+
+    if (typeof total !== 'number') {
+      setIsFree(null);
+      return;
+    }
+
+    setIsFree(total < 0.01);
   }, [commerce, checkout]);
 
   return isFree;

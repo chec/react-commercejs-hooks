@@ -7,12 +7,16 @@ export interface CheckoutContextInterface {
   checkout: any,
   updateLive: Function,
   createCheckout: Function,
+  countries: object[]|undefined,
+  setCountries: Function,
 }
 
 export const CheckoutContext = createContext<CheckoutContextInterface>({
   checkout: undefined,
   updateLive: () => {},
   createCheckout: () => {},
+  countries: undefined,
+  setCountries: () => {},
 });
 
 export enum CheckoutIdType {
@@ -34,6 +38,7 @@ export default function CheckoutProvider(
 ) {
   const commerce = useCommerce();
   const [checkout, setCheckout] = useState<object|undefined>();
+  const [countries, setCountries] = useState<object[]>();
   const createCheckout = async () => setCheckout(await commerce.checkout.generateTokenFrom(type, id));
 
   useEffect(() => {
@@ -57,7 +62,13 @@ export default function CheckoutProvider(
   }
 
   return (
-    <CheckoutContext.Provider value={{ checkout, updateLive, createCheckout }}>
+    <CheckoutContext.Provider value={{
+      checkout,
+      updateLive,
+      createCheckout,
+      countries,
+      setCountries,
+    }}>
       { children }
     </CheckoutContext.Provider>
   );
