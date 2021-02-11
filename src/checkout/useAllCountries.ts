@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import useCommerce from '../useCommerce';
+import { CheckoutContext } from "./CheckoutProvider";
 
 export default function useAllCountries() {
-  const [countries, setCountries] = useState<object[]>();
   const commerce = useCommerce();
+  const { countries, setCountries } = useContext(CheckoutContext);
 
   useEffect(() => {
-    if (!commerce) {
+    if (!commerce || countries !== undefined) {
       return;
     }
 
-    commerce.services.localeListCountries().then((response: any) => setCountries(response.countries));
+    // Set an initial value for countries to prevent more than one instance of this hook queuing the same API call
+    setCountries([]);
+
+    commerce.services.localeListCountries().then((response: any) => {
+      setCountries(response.countries)
+    });
   }, [commerce]);
 
   return countries;
