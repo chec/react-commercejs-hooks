@@ -16,7 +16,7 @@ export default function useCheckVariant() {
         checkout.id,
         lineItemId,
         {
-          variant_id: variantId,
+          group_id: variantId,
           option_id: optionId,
         },
       ).then((result: any) => {
