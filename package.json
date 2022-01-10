@@ -12,7 +12,7 @@
   ],
   "description": "ReactJS hooks for using Commerce.js with React projects",
   "main": "dist/index.js",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "repository": "https://github.com/chec/react-commercejs-hooks",
   "author": "Chec Platform Ltd.",
   "license": "BSD-3-Clause",

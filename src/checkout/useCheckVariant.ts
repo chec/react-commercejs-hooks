@@ -15,10 +15,7 @@ export default function useCheckVariant() {
       return commerce.checkout.checkVariant(
         checkout.id,
         lineItemId,
-        {
-          group_id: variantId,
-          option_id: optionId,
-        },
+        { options: [optionId] },
       ).then((result: any) => {
         updateLive(result.live);
         return result;
