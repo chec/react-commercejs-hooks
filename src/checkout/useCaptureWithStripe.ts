@@ -74,5 +74,5 @@ export default function useCaptureWithStripe() {
         },
       });
     }
-  }, [stripe, elements])
+  }, [stripe, elements, capture])
 }
